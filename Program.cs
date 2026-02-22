@@ -8,13 +8,32 @@
 
             var callQueue = new CustomerQueue<string>();
 
-            callQueue.Enqueue("Alice");
+           
+
+            callQueue.Enqueue("James");
+            callQueue.Enqueue("Mike");
+            callQueue.Enqueue("Kate");
             callQueue.Enqueue("Bob");
-            callQueue.Enqueue("Carol");
-            callQueue.Enqueue("David");
             callQueue.Enqueue("Emma");
 
             callQueue.Display();
+
+            var data = callQueue.Dequeue();
+
+            callQueue.Display();
+
+
+            var callQueue2 = new CustomerQueue<string>();
+
+            try
+            {
+                callQueue2.Display();
+                callQueue2.Dequeue();
+            }catch(InvalidOperationException ex)
+            {
+                Console.WriteLine($"Exception caught: {ex.Message}");
+            }
+
 
         }
     }

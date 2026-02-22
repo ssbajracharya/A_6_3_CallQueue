@@ -48,6 +48,8 @@ namespace A_6_3_CallQueue
             }
 
             count++;
+
+            Console.WriteLine($"Enqueued: '{data}'  |  Queue Length: {count}");
         }
 
 
@@ -62,7 +64,7 @@ namespace A_6_3_CallQueue
 
             if (IsEmpty)
             {
-                throw new InvalidOperationException("Queue is empty; no customers to dequeue.");
+                throw new InvalidOperationException("Cannot Dequeue from empty queue.");
             }
             T data = front!.Data;
             front = front.Next;
@@ -72,18 +74,17 @@ namespace A_6_3_CallQueue
             }
 
             count--;
-
+            Console.WriteLine($"Dequeued: '{data}'  |  Queue Length: {count}");
             return data;
         }
 
         public void Display()
         {
+            Console.WriteLine("\nQueue from front to back):\n");
             if (IsEmpty)
             {
-                Console.WriteLine("  (queue is empty)");
+                Console.WriteLine("Queue is empty");
                 return;
-
-
             }
             else
             {
@@ -104,7 +105,7 @@ namespace A_6_3_CallQueue
 
                 }
 
-                Console.WriteLine($"  (total: {count})");
+                Console.WriteLine($"  (total: {count})\n\n");
             }
         }
     }
